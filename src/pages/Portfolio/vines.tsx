@@ -8,23 +8,23 @@ import Box from '@mui/material/Box';
 
 //import pictures
 // import Beacon from '../../assets/Portfolio/Vines/Beacon.gif'
-import CamVines from '../../assets/Portfolio/Vines/CamVines.gif'
-import Chirper from '../../assets/Portfolio/Vines/ChirperDeply.gif'
-import CubeVines from '../../assets/Portfolio/Vines/CubeVines.gif'
-import HUD from '../../assets/Portfolio/Vines/HUDdemo.gif'
-import ItemWheelCropped from '../../assets/Portfolio/Vines/ItemWheelCropped.gif'
-import ItemWheelWide from '../../assets/Portfolio/Vines/ItemWheelWide.gif'
-import ItemWheelAndMenu from '../../assets/Portfolio/Vines/MenuAndItemWheelCombined.gif'
-import Menu from '../../assets/Portfolio/Vines/MenuExample.gif'
-import Outlines from '../../assets/Portfolio/Vines/OutlineComparisions.png'
-import Scanner from '../../assets/Portfolio/Vines/ScannerSweap.gif'
-import SeekerVines from '../../assets/Portfolio/Vines/SeekerVinesDemo.gif'
-import SmartVines from '../../assets/Portfolio/Vines/SmartVinesHighlighted.gif'
-import StaticVines from '../../assets/Portfolio/Vines/StaticVineCombo.gif'
-import HighlightReel from '../../assets/Portfolio/Vines/VinesHighlights.gif'
-import VinesSplash from '../../assets/Portfolio/Vines/VinesSplash.jpg'
-import VinnyWithVines from '../../assets/Portfolio/Vines/VinnyWithRaycastVines.gif'
-import VineWriggle from '../../assets/Portfolio/Vines/WriggleCloseUp.gif'
+// import CamVines from '../../assets/Portfolio/Vines/CamVines.gif'
+// import Chirper from '../../assets/Portfolio/Vines/ChirperDeply.gif'
+// import CubeVines from '../../assets/Portfolio/Vines/CubeVines.gif'
+// import HUD from '../../assets/Portfolio/Vines/HUDdemo.gif'
+// import ItemWheelCropped from '../../assets/Portfolio/Vines/ItemWheelCropped.gif'
+// import ItemWheelWide from '../../assets/Portfolio/Vines/ItemWheelWide.gif'
+// import ItemWheelAndMenu from '../../assets/Portfolio/Vines/MenuAndItemWheelCombined.gif'
+// import Menu from '../../assets/Portfolio/Vines/MenuExample.gif'
+// import Outlines from '../../assets/Portfolio/Vines/OutlineComparisions.png'
+// import Scanner from '../../assets/Portfolio/Vines/ScannerSweap.gif'
+// import SeekerVines from '../../assets/Portfolio/Vines/SeekerVinesDemo.gif'
+// import SmartVines from '../../assets/Portfolio/Vines/SmartVinesHighlighted.gif'
+// import StaticVines from '../../assets/Portfolio/Vines/StaticVineCombo.gif'
+// import HighlightReel from '../../assets/Portfolio/Vines/VinesHighlights.gif'
+// import VinesSplash from '../../assets/Portfolio/Vines/VinesSplash.jpg'
+// import VinnyWithVines from '../../assets/Portfolio/Vines/VinnyWithRaycastVines.gif'
+// import VineWriggle from '../../assets/Portfolio/Vines/WriggleCloseUp.gif'
 
 
 interface TabPanelProps {
@@ -61,7 +61,7 @@ function a11yProps(index: number) {
 function Vines() {
   const [value, setValue] = React.useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 

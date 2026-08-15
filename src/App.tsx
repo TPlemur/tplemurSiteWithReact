@@ -17,7 +17,6 @@ import Vines from './pages/Portfolio/vines.tsx'
 
 import Engineer from './pages/Engineer/Engineer.tsx'
 
-import { red } from '@mui/material/colors';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
