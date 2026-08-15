@@ -1,0 +1,300 @@
+:root {
+  --carousel-duration: 0.6s;
+  --carousel-easing: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.carousel-shell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 2rem 0 3rem;
+}
+
+.carousel-controls {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.carousel-controls button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.carousel-controls button:first-child {
+  left: 10%;
+}
+
+.carousel-controls button:last-child {
+  right: 10%;
+}
+
+.carousel-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 980px);
+  min-height: 360px;
+  perspective: 1400px;
+  overflow: visible;
+}
+
+.carousel-card {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: 70%;
+  aspect-ratio: 16/9;
+  border: none;
+  border-radius: 24px;
+  overflow: hidden;
+  color: white;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.28);
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  will-change: transform, filter;
+}
+
+.carousel-card:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.9);
+  outline-offset: 4px;
+}
+
+.carousel-card--left {
+  transform: translateX(-42%) rotateY(18deg) scale(0.78);
+  filter: saturate(0.75);
+  z-index: 1;
+}
+
+.carousel-card--right {
+  transform: translateX(42%) rotateY(-18deg) scale(0.78);
+  filter: saturate(0.75);
+  z-index: 1;
+}
+
+.carousel-card--center {
+  transform: translateX(0) rotateY(0deg) scale(1);
+  z-index: 2;
+}
+
+.carousel-card--hidden {
+  transform: translateX(0) rotateY(0deg) scale(0.7);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.carousel-card--animating-CL {
+  animation: card-center-to-left var(--carousel-duration) var(--carousel-easing) forwards;
+}
+
+.carousel-card--animating-CR {
+  animation: card-center-to-right var(--carousel-duration) var(--carousel-easing) forwards;
+}
+
+.carousel-card--animating-RC {
+  animation: card-right-to-center var(--carousel-duration) var(--carousel-easing) forwards;
+}
+
+.carousel-card--animating-LC {
+  animation: card-left-to-center var(--carousel-duration) var(--carousel-easing) forwards;
+}
+
+.carousel-card--animating-RL {
+  animation: card-right-to-left var(--carousel-duration) var(--carousel-easing) forwards;
+}
+
+.carousel-card--animating-LR {
+  animation: card-left-to-right var(--carousel-duration) var(--carousel-easing) forwards;
+}
+
+.carousel-card--animating-new-left {
+  animation: card-new-on-left var(--carousel-duration) var(--carousel-easing) forwards;
+}
+
+.carousel-card--animating-new-right {
+  animation: card-new-on-right var(--carousel-duration) var(--carousel-easing) forwards;
+}
+
+@keyframes card-right-to-center {
+  0% {
+    transform: translateX(42%) rotateY(-18deg) scale(0.78);
+    filter: saturate(0.75);
+    z-index: 1;
+  }
+  50% {
+    transform: translateX(52%) rotateY(0deg) scale(0.88);
+    filter: saturate(0.75);
+    z-index: 1;
+  }
+  100% {
+    transform: translateX(0) rotateY(0deg) scale(1);
+    z-index: 2;
+  }
+}
+
+@keyframes card-left-to-center {
+  0% {
+    transform: translateX(-42%) rotateY(18deg) scale(0.78);
+    filter: saturate(0.75);
+    z-index: 1;
+  }
+  50% {
+    transform: translateX(-52%) rotateY(0deg) scale(0.88);
+    filter: saturate(0.75);
+    z-index: 1;
+  }
+  100% {
+    transform: translateX(0) rotateY(0deg) scale(1);
+    z-index: 2;
+  }
+}
+
+@keyframes card-center-to-left {
+  0% {
+    transform: translateX(0) rotateY(0deg) scale(1);
+    z-index: 2;
+  }
+  50% {
+    transform: translateX(-52%) rotateY(0deg) scale(0.88);
+    filter: saturate(0.75);
+    z-index: 1;
+  }
+  100% {
+    transform: translateX(-42%) rotateY(18deg) scale(0.78);
+    filter: saturate(0.75);
+    z-index: 1;
+  }
+}
+
+@keyframes card-center-to-right {
+  0% {
+    transform: translateX(0) rotateY(0deg) scale(1);
+    z-index: 2;
+  }
+  50% {
+    transform: translateX(52%) rotateY(0deg) scale(0.88);
+    filter: saturate(0.75);
+    z-index: 1;
+  }
+  100% {
+    transform: translateX(42%) rotateY(-18deg) scale(0.78);
+    filter: saturate(0.75);
+    z-index: 1;
+  }
+}
+
+@keyframes card-right-to-left {
+  0% {
+    transform: translateX(42%) rotateY(-18deg) scale(0.78);
+    filter: saturate(0.75);
+    z-index: 1;
+  }
+  49.99% {
+    transform: translateX(52%) rotateY(0deg) scale(0.68);
+    opacity: 1;
+    z-index: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes card-new-on-left {
+    0% {
+        transform: translateX(52%) rotateY(0deg) scale(0.67);
+        opacity: 0;
+        z-index: 0;
+    }
+    50%{
+        transform: translateX(52%) rotateY(0deg) scale(0.67);
+        opacity: 1;
+        z-index: 0;
+    }
+    100% {
+        transform: translateX(42%) rotateY(-18deg) scale(0.78);
+        opacity: 1;
+        filter: saturate(0.75);
+        z-index: 1;
+    }
+
+}
+
+@keyframes card-left-to-right {
+  0% {
+    transform: translateX(-42%) rotateY(18deg) scale(0.78);
+    filter: saturate(0.75);
+    z-index: 1;
+  }
+  49.99% {
+    transform: translateX(-52%) rotateY(0deg) scale(0.68);
+    opacity: 1;
+    z-index: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  50.01% {
+    transform: translateX(52%) rotateY(0deg) scale(0.68);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes card-new-on-right {
+    0% {
+        transform: translateX(-52%) rotateY(0deg) scale(0.67);
+        opacity: 0;
+        z-index: 0;
+    }
+    50%{
+        transform: translateX(-52%) rotateY(0deg) scale(0.67);
+        opacity: 1;
+        z-index: 0;
+    }
+    100% {
+        transform: translateX(-42%) rotateY(18deg) scale(0.78);
+        filter: saturate(0.75);
+        opacity: 1;
+        z-index: 1;
+    }
+
+}
+
+.carousel-card__content {
+  padding: 1.25rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.55) 100%);
+  width: 100%;
+}
+
+.carousel-card__content h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+}
+
+.carousel-card__content p {
+  margin: 0;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.95rem;
+}

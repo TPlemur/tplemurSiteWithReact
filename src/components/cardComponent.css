@@ -1,0 +1,121 @@
+
+
+body {
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  padding: 16px;
+}
+
+.card {
+  background-color: var(--card-color);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 300px;
+  height: 360px;
+  transition: transform 0.5s;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+}
+
+.card:hover,
+.card-hovered {
+  transform: translateY(-10px);
+}
+
+.card:hover::before,
+.card-hovered::before {
+  opacity: 1;
+}
+
+.card::before {
+  border-radius: inherit;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.1), transparent 30%);
+  transition: opacity 500ms;
+  opacity: 0;
+  z-index: 3;
+}
+
+.card::after {
+  background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.1), transparent 30%);
+  z-index: 1;
+}
+
+.card-content {
+  background-color: transparent;
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: absolute;
+  inset: 1px;
+  padding: 10px;
+  z-index: 2;
+}
+
+h1, h2, h3, h4, span {
+  color: rgb(240, 240, 240);
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+}
+
+.card-info-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 16px;
+  margin-top: auto;
+}
+
+.card-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.card-info-title > h3 {
+  font-size: 1.1em;
+  line-height: 0;
+}
+
+.card-info-title > h4 {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+
+.card-info-title h3,
+.card-info-title h4 {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.card-transitioning {
+  transition: transform 0.5s;
+}
+
+.card-hovered {
+  transform: translateY(-10px);
+}
