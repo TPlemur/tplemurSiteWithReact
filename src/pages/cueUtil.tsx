@@ -102,7 +102,7 @@ function CueUtil() {
         </div>
       </Box>
       <div style={{ whiteSpace: 'pre-wrap' }}>{convertedCue}</div>
-      <header><br></br>Useeful FFMPEG commands</header>
+      <header><br></br>Useful FFMPEG commands</header>
       <div>
         Add the chapters specified to the book.
         <code>ffmpeg -i Book.mp3 -i Chapters.txt -map 0:a -map_metadata 1 -c:a aac -b:a 128k output.m4b</code>
