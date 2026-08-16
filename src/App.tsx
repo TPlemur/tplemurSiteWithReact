@@ -43,6 +43,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/ReactWebsiteDist/" element={<Home />} /> {/* Change to actual home page*/}
           <Route path="/Chocolate" element={<Chocolate />} />
           <Route path="/Portfolio" element={<Portfolio />} />
           <Route path="/Engineer" element={<Engineer />} />
